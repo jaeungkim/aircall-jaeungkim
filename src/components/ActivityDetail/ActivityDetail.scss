@@ -1,6 +1,7 @@
 .activityDetail {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #F0F0F0;
 
     &__created-at {
         font-size: 12px;
@@ -26,4 +27,6 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    &__phone-img {}
 }

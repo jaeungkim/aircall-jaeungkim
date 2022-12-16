@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import "./ActivityDetail.scss";
-//Detail component of individual call
+import outboundCall from "../../assets/outbound-call.png";
+import inboundCall from "../../assets/inbound-call.png";
 
 const formatDate = (date) => {
   var d = new Date(date),
@@ -19,7 +19,47 @@ const ActivityDetail = (props) => {
         &nbsp;&nbsp;{formatDate(props.calls.created_at)}&nbsp;&nbsp;
       </p>
       <div className="activityDetail__card">
-        <p className="activityDetail__call-from">{props.calls.id}</p>
+        {props.calls.direction === "inbound" ? (
+          <div className="d-flex">
+            <div>
+              <img className="activityDetail__phone-img" src={inboundCall} alt="" />
+            </div>
+            <div>
+              <p className="activityDetail__call-from">{props.calls.from}</p>
+              <p className="">Tried to call you on {props.calls.via}</p>
+            </div>
+            <div>
+              <p className="activityDetail__call-from">{props.calls.via}</p>
+              <p className="activityDetail__call-from">
+                {props.calls.duration}
+              </p>
+              <p className="activityDetail__call-from">
+                {props.calls.call_type}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="d-flex">
+            <div>
+              <p className="activityDetail__call-from">
+                <img className="activityDetail__phone-img" src={outboundCall} alt="" />
+              </p>
+            </div>
+            <div>
+              <p className="activityDetail__call-from">{props.calls.to}</p>
+            </div>
+            <div>
+              <p className="activityDetail__call-from">{props.calls.via}</p>
+              <p className="activityDetail__call-from">
+                {props.calls.duration}
+              </p>
+              <p className="activityDetail__call-from">
+                {props.calls.call_type}
+              </p>
+            </div>
+          </div>
+        )}
+
         {props.calls.is_archived ? (
           <button onClick={() => props.onClick()}>unarchive</button>
         ) : (

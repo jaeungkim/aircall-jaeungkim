@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import Header from "./Header.jsx";
+
 import ActivityFeed from "./components/ActivityFeed/ActivityFeed.jsx";
 
 const App = () => {
   return (
-    <div className="container">
-      <Header />
+    <div className="customContainer">
       <div className="call-log">
         <ActivityFeed />
       </div>

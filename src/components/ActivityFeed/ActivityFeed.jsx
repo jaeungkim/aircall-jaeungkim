@@ -108,31 +108,21 @@ export default function ActivityFeed() {
 
   return (
     <div>
-      <div className="activityTabs d-flex flex-row justify-content-between">
-        <Header />
-        <ul className="activityTabs__tab-div" id="nav-tab" role="tablist">
-          <li className="activityTabs__tab">
-            <button
-              className="btn"
-              onClick={() => {
-                setCallState(true);
-              }}
-            >
-              All Calls
-            </button>
-          </li>
-          <li className="activityTabs__tab">
-            <button
-              className="btn "
-              onClick={() => {
-                setCallState(false);
-              }}
-            >
-              Archived Calls
-            </button>
-          </li>
-        </ul>
+      <Header />
+      <div className="w-100">
+        <span className="switcher switcher-1">
+          <input
+            type="checkbox"
+            id="switcher-1"
+            defaultChecked={true}
+            onClick={(e) => {
+              e.target.checked ? setCallState(true) : setCallState(false);
+            }}
+          />
+          <label htmlFor="switcher-1"></label>
+        </span>
       </div>
+
       {!initLoading ? (
         callState ? (
           activeCalls.map((activeCall, index) => {

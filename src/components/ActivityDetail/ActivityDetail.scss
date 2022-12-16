@@ -38,6 +38,10 @@
     }
 
     &__second-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4px;
         width: 150px;
         padding-left: 8px;
     }

@@ -46,13 +46,9 @@ const ActivityDetail = (props) => {
               <p>Tried to call you on</p>
               <p className="activityDetail__call-via ">{props.calls.via}</p>
             </div>
-            <div className="mx-2">
-              <p className="activityDetail__call-from">
-                {props.calls.duration}
-              </p>
-              <p className="activityDetail__call-from">
-                {props.calls.call_type}
-              </p>
+            <div className="d-flex flex-column justify-content-between mr-4">
+              <p>Duration: {props.calls.duration}s</p>
+              <p>{props.calls.call_type}</p>
             </div>
           </div>
         ) : (
@@ -71,13 +67,9 @@ const ActivityDetail = (props) => {
               <p>Tried to call you on</p>
               <p className="activityDetail__call-via">{props.calls.via}</p>
             </div>
-            <div className="mx-2">
-              <p className="activityDetail__call-from">
-                Duration: {props.calls.duration} seconds
-              </p>
-              <p className="activityDetail__call-from">
-                {props.calls.call_type}
-              </p>
+            <div className="d-flex flex-column justify-content-between mr-4">
+              <p>Duration: {props.calls.duration}s</p>
+              <p>{props.calls.call_type}</p>
             </div>
           </div>
         )}

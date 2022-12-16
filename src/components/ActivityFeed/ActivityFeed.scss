@@ -1,0 +1,16 @@
+.activityTabs {
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    &__tab-div {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    &__tab {
+        list-style: none;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

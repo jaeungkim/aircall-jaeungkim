@@ -26,10 +26,9 @@ const ActivityDetail = (props) => {
             </div>
             <div>
               <p className="activityDetail__call-from">{props.calls.from}</p>
-              <p className="">Tried to call you on {props.calls.via}</p>
+              <p className="activityDetail__call-via">Tried to call you on {props.calls.via}</p>
             </div>
             <div>
-              <p className="activityDetail__call-from">{props.calls.via}</p>
               <p className="activityDetail__call-from">
                 {props.calls.duration}
               </p>
@@ -47,9 +46,9 @@ const ActivityDetail = (props) => {
             </div>
             <div>
               <p className="activityDetail__call-from">{props.calls.to}</p>
+              <p className="activityDetail__call-via">Tried to call you on {props.calls.via}</p>
             </div>
             <div>
-              <p className="activityDetail__call-from">{props.calls.via}</p>
               <p className="activityDetail__call-from">
                 {props.calls.duration}
               </p>

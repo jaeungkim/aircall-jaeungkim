@@ -3,6 +3,8 @@ import axios, { isCancel } from "axios";
 import "./ActivityFeed.scss";
 import Header from "../../Header.jsx";
 import ActivityDetail from "../ActivityDetail/ActivityDetail.jsx";
+import ContentLoader from "../shared/ContentLoader/ContentLoader";
+import Loader from "../shared/Loader/Loader";
 
 export default function ActivityFeed() {
   // const [allCalls, setAllCalls] = useState([]);
@@ -12,6 +14,7 @@ export default function ActivityFeed() {
   const [callState, setCallState] = useState(true);
   const [initLoading, setInitLoading] = useState(false);
   const [loading, setLoading] = useState(false);
+
   //HANDLER FOR ARCHIVING INDIVIDUAL CALL
   const handleArchiveClick = (callID) => {
     setLoading(true);
@@ -79,6 +82,7 @@ export default function ActivityFeed() {
       url: `https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app/activities`,
     })
       .then((response) => {
+        console.log(response.data);
         response.data.map((call) => {
           if (call.is_archived === true) {
             const duplicateExists = archivedCalls.find(
@@ -104,23 +108,12 @@ export default function ActivityFeed() {
 
   return (
     <div>
-      <div className="activityTabs d-flex flex-row">
+      <div className="activityTabs d-flex flex-row justify-content-between">
         <Header />
-        <ul
-          className="activityTabs__tab-div nav nav-tabs"
-          id="nav-tab"
-          role="tablist"
-        >
-          <li className="activityTabs__tab nav-item">
+        <ul className="activityTabs__tab-div" id="nav-tab" role="tablist">
+          <li className="activityTabs__tab">
             <button
-              className="nav-link"
-              id="nav-activeCalls-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-activeCalls"
-              type="button"
-              role="tab"
-              aria-controls="nav-activeCalls"
-              aria-selected="true"
+              className="btn"
               onClick={() => {
                 setCallState(true);
               }}
@@ -128,16 +121,9 @@ export default function ActivityFeed() {
               All Calls
             </button>
           </li>
-          <li className="activityTabs__tab nav-item">
+          <li className="activityTabs__tab">
             <button
-              className="nav-link"
-              id="nav-archivedCalls-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-archivedCalls"
-              type="button"
-              role="tab"
-              aria-controls="nav-archivedCalls"
-              aria-selected="false"
+              className="btn "
               onClick={() => {
                 setCallState(false);
               }}
@@ -151,7 +137,7 @@ export default function ActivityFeed() {
         callState ? (
           activeCalls.map((activeCall, index) => {
             return loading ? (
-              <span key={index} className="content-loader"></span>
+              <ContentLoader key={index} />
             ) : (
               <ActivityDetail
                 key={index}
@@ -174,9 +160,7 @@ export default function ActivityFeed() {
           })
         )
       ) : (
-        <div className="loader-wrapper">
-          <span className="loader"></span>
-        </div>
+        <Loader />
       )}
     </div>
   );

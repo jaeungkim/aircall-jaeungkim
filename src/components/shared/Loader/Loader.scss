@@ -1,0 +1,33 @@
+.Loader-wrapper {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Loader {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #65fe08;
+    box-shadow: 32px 0 #65fe08, -32px 0 #65fe08;
+    position: relative;
+    animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+    0% {
+        background-color: #47ba00;
+        box-shadow: 32px 0 #47ba00, -32px 0 #65fe08;
+    }
+
+    50% {
+        background-color: #65fe08;
+        box-shadow: 32px 0 #47ba00, -32px 0 #47ba00;
+    }
+
+    100% {
+        background-color: #47ba00;
+        box-shadow: 32px 0 #65fe08, -32px 0 #47ba00;
+    }
+}
